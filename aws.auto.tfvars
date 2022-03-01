@@ -9,7 +9,7 @@ vpc_subnets = [ {
   name = "subnet01"
 } ]
 igw_name = "johnsonz-igw"
-ec2 = 
+ec2 = {
   instance_type = "t3.xlarge"
   name = "johnsonz-dss"
 }
