@@ -23,6 +23,8 @@ resource "aws_network_interface" "dss" {
   subnet_id   = aws_subnet.main[var.ec2_interface.subnet_index].id
   private_ips = var.ec2_interface.private_ips
 
+  security_groups = [aws_security_group.allow_ssh.id,]
+
   tags = merge(
       local.common_tags,
       {
