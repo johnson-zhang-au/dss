@@ -1,8 +1,11 @@
 variable "DkuOwner" {
     type = string
 }
-variable "vpc_cidr" {
-  type = string
+variable "vpc" {
+  type = object({
+      name = string
+      cidr_block = string
+  })
 }
 
 variable "vpc_subnets" {
