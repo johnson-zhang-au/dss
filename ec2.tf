@@ -33,6 +33,18 @@ resource "aws_network_interface" "dss" {
   )
 }
 
+resource "aws_ebs_volume" "data" {
+  availability_zone = var.az_name
+  size              = var.ebs_vol.size
+
+  tags = merge(
+      local.common_tags,
+      {
+      "Name" =  var.ebs_vol.name
+      },
+  )
+}
+
 resource "aws_instance" "dss" {
   ami           = data.aws_ami.centos.id
   instance_type = var.ec2.instance_type

@@ -39,6 +39,15 @@ variable "ec2_interface" {
     subnet_index = number
   })
 }
+variable "az_name" {
+  type = string
+}
+variable "ebs_vol" {
+  type = object({
+      name = string
+      size = number
+  })
+}
 variable "key_name" {
   type = string
 }

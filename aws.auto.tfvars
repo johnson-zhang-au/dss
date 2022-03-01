@@ -18,5 +18,9 @@ ec2_interface = {
   private_ips = [ "10.0.0.4" ]
   subnet_index = 0
 }
+ebs_vol = {
+  name = "jz-dss-data"
+  size = 100
+}
 key_name = "johnsonz-key"
 my_ip = "49.178.105.115/32"
