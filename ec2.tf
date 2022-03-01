@@ -59,6 +59,7 @@ resource "aws_instance" "dss" {
   }
 
   key_name = aws_key_pair.key.key_name 
+  iam_instance_profile = aws_iam_instance_profile.dss_profile.name
 
   tags = merge(
       local.common_tags,
