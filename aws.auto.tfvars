@@ -16,3 +16,4 @@ ec2_interface = [ {
   name = "jz-dss-nic"
   private_ips = [ "10.0.0.4" ]
 } ]
+key_name = "johnsonz-key"
