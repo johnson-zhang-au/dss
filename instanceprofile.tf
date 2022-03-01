@@ -31,9 +31,10 @@ resource "aws_iam_policy" "policy_one" {
     Statement = [
       {
         Action   = ["ecr:DescribeImages",
-        "ecr:DescribeRepositories"]
+        "ecr:DescribeRepositories",
+        "ecr:GetAuthorizationToken"]
         Effect   = "Allow"
-        Resource = aws_ecr_repository.dss.arn
+        Resource = "*"
       },
     ]
   })
