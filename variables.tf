@@ -62,5 +62,5 @@ variable "public_key" {
 }
 
 variable "my_ip" {
-  type = string
+  type = list(string)
 }
