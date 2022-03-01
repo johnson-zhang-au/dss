@@ -13,6 +13,7 @@ resource "aws_subnet" "main" {
   count      = length(var.vpc_subnets)
   vpc_id     = aws_vpc.main.id
   cidr_block = var.vpc_subnets[count.index].cidr_block
+  map_public_ip_on_launch = true
 
   tags = merge(
       local.common_tags,
