@@ -9,12 +9,12 @@ vpc_subnets = [ {
   name = "subnet01"
 },
 {
-  cidr_block = "10.1.0.0/24"
+  cidr_block = "10.0.1.0/24"
   subnet_index = 1
   name = "subnet02"
 },
 {
-  cidr_block = "10.2.0.0/24"
+  cidr_block = "10.0.2.0/24"
   subnet_index = 2
   name = "subnet03"
 } ]
