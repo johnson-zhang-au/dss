@@ -50,6 +50,6 @@ resource "aws_route_table" "jz-rt" {
 }
 
 resource "aws_main_route_table_association" "rt-main-association" {
-  vpc_id         = aws_vpc.main
+  vpc_id         = aws_vpc.main.id
   route_table_id = aws_route_table.jz-rt.id
 }
