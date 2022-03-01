@@ -20,6 +20,7 @@ ec2_interface = {
   private_ips = [ "10.0.0.4" ]
   subnet_index = 0
 }
+az_name = "ap-southeast-1"
 ebs_vol = {
   name = "johnsonz-dss-data"
   size = 100
