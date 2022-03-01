@@ -8,6 +8,7 @@ vpc_subnets = [ {
   subnet_index = 0
   name = "subnet01"
 } ]
+igw_name = "jz-igw"
 ec2 = {
   instance_type = "t3.xlarge"
   name = "jz-dss"
