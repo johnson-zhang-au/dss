@@ -23,6 +23,10 @@ variable "igw_name" {
   type = string
 }
 
+variable "rt_name" {
+    type = string
+}
+
 variable "ec2" {
   type = object(
     {

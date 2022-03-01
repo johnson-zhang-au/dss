@@ -46,7 +46,12 @@ resource "aws_route_table" "jz-rt" {
   }
 
 
-   tags = local.common_tags
+   tags = merge(
+      local.common_tags,
+      {
+      "Name" = var.rt_name
+      },
+  )
 }
 
 resource "aws_main_route_table_association" "rt-main-association" {

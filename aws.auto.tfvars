@@ -1,25 +1,27 @@
 DkuOwner = "Johnson Zhang"
 vpc = {
   cidr_block = "10.0.0.0/16"
-  name = "jz-vpc"
+  name = "johnsonz-vpc"
 }
 vpc_subnets = [ {
   cidr_block = "10.0.0.0/24"
   subnet_index = 0
   name = "subnet01"
 } ]
-igw_name = "jz-igw"
-ec2 = {
+igw_name = "johnsonz-igw"
+ec2 = 
   instance_type = "t3.xlarge"
-  name = "jz-dss"
+  name = "johnsonz-dss"
 }
+
+rt_name = "johnsonz-rt"
 ec2_interface = {
-  name = "jz-dss-nic"
+  name = "johnsonz-dss-nic"
   private_ips = [ "10.0.0.4" ]
   subnet_index = 0
 }
 ebs_vol = {
-  name = "jz-dss-data"
+  name = "johnsonz-dss-data"
   size = 100
 }
 key_name = "johnsonz-key"
