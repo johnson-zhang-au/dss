@@ -13,6 +13,7 @@ variable "vpc_subnets" {
         {
             subnet_index = number
             cidr_block = string
+            name = string
         }
     ))
   
