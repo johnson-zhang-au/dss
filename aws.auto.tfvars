@@ -7,6 +7,16 @@ vpc_subnets = [ {
   cidr_block = "10.0.0.0/24"
   subnet_index = 0
   name = "subnet01"
+},
+{
+  cidr_block = "10.1.0.0/24"
+  subnet_index = 1
+  name = "subnet02"
+},
+{
+  cidr_block = "10.2.0.0/24"
+  subnet_index = 2
+  name = "subnet03"
 } ]
 igw_name = "johnsonz-igw"
 ec2 = {
