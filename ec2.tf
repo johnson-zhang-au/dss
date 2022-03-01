@@ -59,6 +59,10 @@ resource "aws_instance" "dss" {
   }
 
   key_name = aws_key_pair.key.key_name 
+  eebs_block_device {
+    device_name = aws_ebs_volume.data.name
+    delete_on_termination = false
+  }
 
   tags = merge(
       local.common_tags,
