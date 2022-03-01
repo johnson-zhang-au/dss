@@ -32,6 +32,7 @@ variable "ec2_interface" {
   type = list(object({
       name = string
       private_ips = list(string)
+      subnet_index = number
   }))
 }
 variable "key_name" {

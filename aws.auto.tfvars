@@ -5,7 +5,7 @@ vpc = {
 }
 vpc_subnets = [ {
   cidr_block = "10.0.0.0/24"
-  subnet_index = 1
+  subnet_index = 0
   name = "subnet01"
 } ]
 ec2 = [ {
@@ -15,5 +15,6 @@ ec2 = [ {
 ec2_interface = [ {
   name = "jz-dss-nic"
   private_ips = [ "10.0.0.4" ]
+  subnet_index = 0
 } ]
 key_name = "johnsonz-key"

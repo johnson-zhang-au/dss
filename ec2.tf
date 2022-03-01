@@ -20,7 +20,7 @@ data "aws_ami" "centos" {
 }
 
 resource "aws_network_interface" "dss" {
-  subnet_id   = aws_subnet.main.id
+  subnet_id   = aws_subnet.main[var.ec2_interface.subnet_index].id
   private_ips = var.ec2_interface.private_ips
 
   tags = merge(
