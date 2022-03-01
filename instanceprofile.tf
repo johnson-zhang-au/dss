@@ -32,7 +32,14 @@ resource "aws_iam_policy" "policy_one" {
       {
         Action   = ["ecr:DescribeImages",
         "ecr:DescribeRepositories",
-        "ecr:GetAuthorizationToken"]
+        "ecr:GetAuthorizationToken",
+        "ecr:BatchGetImage",
+        "ecr:BatchCheckLayerAvailability",
+        "ecr:CompleteLayerUpload",
+        "ecr:GetDownloadUrlForLayer",
+        "ecr:InitiateLayerUpload",
+        "ecr:PutImage",
+        "ecr:UploadLayerPart"]
         Effect   = "Allow"
         Resource = "*"
       },
