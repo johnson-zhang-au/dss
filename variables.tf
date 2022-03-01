@@ -1,38 +1,38 @@
 variable "DkuOwner" {
-    type = string
+  type = string
 }
 variable "vpc" {
   type = object({
-      name = string
-      cidr_block = string
+    name       = string
+    cidr_block = string
   })
 }
 
 variable "vpc_subnets" {
-    type = list(object(
-        {
-            subnet_index = number
-            cidr_block = string
-            name = string
-        }
-    ))
-  
+  type = list(object(
+    {
+      subnet_index = number
+      cidr_block   = string
+      name         = string
+    }
+  ))
+
 }
 
 variable "ec2" {
   type = object(
-      {
-          name = string
-          instance_type = string
-      }
+    {
+      name          = string
+      instance_type = string
+    }
   )
 }
 
 variable "ec2_interface" {
   type = object({
-      name = string
-      private_ips = list(string)
-      subnet_index = number
+    name         = string
+    private_ips  = list(string)
+    subnet_index = number
   })
 }
 variable "key_name" {
@@ -40,6 +40,10 @@ variable "key_name" {
 }
 
 variable "public_key" {
-  type = string
+  type      = string
   sensitive = true
+}
+
+variable "my_ip" {
+  type = string
 }

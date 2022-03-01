@@ -18,3 +18,4 @@ ec2_interface = {
   subnet_index = 0
 }
 key_name = "johnsonz-key"
+my_ip = "49.178.105.115"
