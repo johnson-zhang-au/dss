@@ -59,10 +59,6 @@ resource "aws_instance" "dss" {
   }
 
   key_name = aws_key_pair.key.key_name 
-  eebs_block_device {
-    device_name = aws_ebs_volume.data.name
-    delete_on_termination = false
-  }
 
   tags = merge(
       local.common_tags,
@@ -70,4 +66,10 @@ resource "aws_instance" "dss" {
       "Name" = var.ec2.name
       },
   )
+}
+
+resource "aws_volume_attachment" "data_ebs_att" {
+  device_name = "/dev/sdf"
+  volume_id   = aws_ebs_volume.data.id
+  instance_id = aws_instance.dss.id
 }
