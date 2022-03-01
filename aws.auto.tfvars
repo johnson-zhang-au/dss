@@ -8,13 +8,13 @@ vpc_subnets = [ {
   subnet_index = 0
   name = "subnet01"
 } ]
-ec2 = [ {
+ec2 = {
   instance_type = "t3.xlarge"
   name = "jz-dss"
-} ]
-ec2_interface = [ {
+}
+ec2_interface = {
   name = "jz-dss-nic"
   private_ips = [ "10.0.0.4" ]
   subnet_index = 0
-} ]
+}
 key_name = "johnsonz-key"

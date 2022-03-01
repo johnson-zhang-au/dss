@@ -20,20 +20,20 @@ variable "vpc_subnets" {
 }
 
 variable "ec2" {
-  type = list(object(
+  type = object(
       {
           name = string
           instance_type = string
       }
-  ))
+  )
 }
 
 variable "ec2_interface" {
-  type = list(object({
+  type = object({
       name = string
       private_ips = list(string)
       subnet_index = number
-  }))
+  })
 }
 variable "key_name" {
   type = string
