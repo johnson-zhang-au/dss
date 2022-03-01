@@ -64,3 +64,12 @@ variable "public_key" {
 variable "my_ip" {
   type = list(string)
 }
+
+variable "ecr" {
+    type = object({
+        name = string
+        scan_on_push = bool
+        image_tag_mutability = string
+    })
+}
+

@@ -27,3 +27,8 @@ ebs_vol = {
 }
 key_name = "johnsonz-key"
 my_ip = ["49.178.105.115/32","1.147.110.85/32"]
+ecr = {
+  image_tag_mutability = "MUTABLE"
+  name = "johnson-dss"
+  scan_on_push = false
+}
