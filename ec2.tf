@@ -44,7 +44,7 @@ resource "aws_instance" "dss" {
     cpu_credits = "unlimited"
   }
 
-  key_name = aws_key_pair.key.name 
+  key_name = aws_key_pair.key.key_name 
 
   tags = merge(
       local.common_tags,
