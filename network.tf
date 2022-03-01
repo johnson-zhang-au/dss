@@ -8,7 +8,7 @@ resource "aws_vpc" "main" {
 resource "aws_subnet" "main" {
   count      = length(var.vpc_subnets)
   vpc_id     = aws_vpc.main.id
-  cidr_block = var.vpc_cidr[count.index]
+  cidr_block = var.vpc_subnets[count.index].subnet_index
 
   tags = local.common_tags
 }
