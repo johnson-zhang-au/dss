@@ -7,8 +7,8 @@ resource "aws_iam_role" "dss_role" {
   name = "johnsonz_dss_role"
   path = "/"
 
-  assume_role_policy = data.aws_iam_policy_document.instance-assume-role-policy.json
-managed_policy_arns = [aws_iam_policy.policy_one.arn, ]
+  assume_role_policy  = data.aws_iam_policy_document.instance-assume-role-policy.json
+  managed_policy_arns = [aws_iam_policy.policy_one.arn, ]
 
 }
 
@@ -30,16 +30,17 @@ resource "aws_iam_policy" "policy_one" {
     Version = "2012-10-17"
     Statement = [
       {
-        Action   = ["ecr:DescribeImages",
-        "ecr:DescribeRepositories",
-        "ecr:GetAuthorizationToken",
-        "ecr:BatchGetImage",
-        "ecr:BatchCheckLayerAvailability",
-        "ecr:CompleteLayerUpload",
-        "ecr:GetDownloadUrlForLayer",
-        "ecr:InitiateLayerUpload",
-        "ecr:PutImage",
-        "ecr:UploadLayerPart"]
+        Action = ["ecr:DescribeImages",
+          "ecr:DescribeRepositories",
+          "ecr:GetAuthorizationToken",
+          "ecr:BatchGetImage",
+          "ecr:BatchCheckLayerAvailability",
+          "ecr:CompleteLayerUpload",
+          "ecr:GetDownloadUrlForLayer",
+          "ecr:InitiateLayerUpload",
+          "ecr:PutImage",
+          "ecr:UploadLayerPart",
+          "ecr:CreateRepository" ]
         Effect   = "Allow"
         Resource = "*"
       },
