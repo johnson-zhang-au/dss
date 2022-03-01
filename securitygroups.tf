@@ -12,7 +12,7 @@ resource "aws_security_group" "allow_ssh" {
 
 resource "aws_security_group_rule" "allow_ssh" {
   type              = "ingress"
-  from_port         = 0
+  from_port         = 22
   to_port           = 22
   protocol          = "tcp"
   cidr_blocks       = [var.my_ip,]
