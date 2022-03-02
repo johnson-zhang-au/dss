@@ -1,11 +1,11 @@
 
 resource "aws_iam_instance_profile" "dss_profile" {
-  name = "test_profile"
+  name = var.instance_profile.name
   role = aws_iam_role.dss_role.name
 }
 
 resource "aws_iam_role" "dss_role" {
-  name = "johnsonz_dss_role"
+  name = var.instance_profile.iam_role_name 
   path = "/"
 
   assume_role_policy = data.aws_iam_policy_document.instance-assume-role-policy.json
@@ -35,7 +35,7 @@ data "aws_iam_policy_document" "instance-assume-role-policy" {
 }
 
 resource "aws_iam_policy" "policy_dss_ecr" {
-  name = "policy-policy-dss-ecr"
+  name = "policy-dss-ecr-${instance_profile.iam_policy_suffix}"
 
   policy = jsonencode({
     Version = "2012-10-17"
@@ -60,7 +60,7 @@ resource "aws_iam_policy" "policy_dss_ecr" {
 }
 
 resource "aws_iam_policy" "policy_dss_eks" {
-  name = "policy-policy-dss-eks"
+  name = "policy-dss-eks-${instance_profile.iam_policy_suffix}"
 
   policy = jsonencode({
     Version = "2012-10-17"
@@ -76,7 +76,7 @@ resource "aws_iam_policy" "policy_dss_eks" {
 }
 
 resource "aws_iam_policy" "policy_dss_eksctl_cf" {
-  name = "policy-policy-dss-eksctl-cf"
+  name = "policy-dss-eksctl-cf-${instance_profile.iam_policy_suffix}"
 
   policy = jsonencode({
     Version = "2012-10-17"
@@ -92,7 +92,7 @@ resource "aws_iam_policy" "policy_dss_eksctl_cf" {
 }
 
 resource "aws_iam_policy" "policy_dss_eks_launch" {
-  name = "policy-policy-dss-eks-launch"
+  name = "policy-dss-eks-launch-${instance_profile.iam_policy_suffix}"
 
   policy = jsonencode({
     Version = "2012-10-17"
@@ -117,7 +117,7 @@ resource "aws_iam_policy" "policy_dss_eks_launch" {
 }
 
 resource "aws_iam_policy" "policy_dss_eks_autoscale" {
-  name = "policy-policy-dss-eks-autoscale"
+  name = "policy-dss-eks-autoscale-${instance_profile.iam_policy_suffix}"
 
   policy = jsonencode({
     Version = "2012-10-17"
@@ -147,7 +147,7 @@ resource "aws_iam_policy" "policy_dss_eks_autoscale" {
 }
 
 resource "aws_iam_policy" "policy_dss_eks_iam" {
-  name = "policy-policy-dss-eks-iam"
+  name = "policy-dss-eks-iam-${instance_profile.iam_policy_suffix}"
 
   policy = jsonencode({
     Version = "2012-10-17"
@@ -208,7 +208,7 @@ resource "aws_iam_policy" "policy_dss_eks_iam" {
 }
 
 resource "aws_iam_policy" "policy_dss_eks_igw" {
-  name = "policy-policy-dss-eks-igw"
+  name = "policy-dss-eks-igw-${instance_profile.iam_policy_suffix}"
 
   policy = jsonencode({
     Version = "2012-10-17"
@@ -223,7 +223,7 @@ resource "aws_iam_policy" "policy_dss_eks_igw" {
   })
 }
 resource "aws_iam_policy" "policy_dss_eks_networking" {
-  name = "policy-policy-dss-eks-networking"
+  name = "policy-dss-eks-networking-${instance_profile.iam_policy_suffix}"
 
   policy = jsonencode({
     Version = "2012-10-17"
@@ -276,7 +276,7 @@ resource "aws_iam_policy" "policy_dss_eks_networking" {
   })
 }
 resource "aws_iam_policy" "policy_dss_eks_ssm" {
-  name = "policy-policy-dss-eks-ssm"
+  name = "policy-dss-eks-ssm-${instance_profile.iam_policy_suffix}"
 
   policy = jsonencode({
     Version = "2012-10-17"

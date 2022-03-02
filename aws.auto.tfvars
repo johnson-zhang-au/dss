@@ -42,3 +42,8 @@ ecr = {
   name = "johnson-dss"
   scan_on_push = false
 }
+instance_profile = {
+  iam_policy_suffix = "johnsonz-dss"
+  iam_role_name = "johnsonz-dss-instance-prfole-role"
+  name = "johnsonz-dss-instance-prfole"
+}

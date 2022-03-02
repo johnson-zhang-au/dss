@@ -73,3 +73,10 @@ variable "ecr" {
     })
 }
 
+variable "instance_profile" {
+    type=object({
+        name = string
+        iam_role_name = string
+        iam_policy_suffix = string
+    })
+}
