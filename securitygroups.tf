@@ -3,10 +3,10 @@ resource "aws_security_group" "allow_ssh" {
   description = "Allow SSH inbound traffic"
   vpc_id      = aws_vpc.main.id
   tags = merge(
-      local.common_tags,
-      {
+    local.common_tags,
+    {
       "Name" = "allow_ssh"
-      },
+    },
   )
 }
 
@@ -15,10 +15,10 @@ resource "aws_security_group" "allow_eks" {
   description = "Allow dss inbound traffic from eks"
   vpc_id      = aws_vpc.main.id
   tags = merge(
-      local.common_tags,
-      {
+    local.common_tags,
+    {
       "Name" = "allow_eks"
-      },
+    },
   )
 }
 
@@ -27,10 +27,10 @@ resource "aws_security_group" "allow_dss" {
   description = "Allow dss inbound traffic"
   vpc_id      = aws_vpc.main.id
   tags = merge(
-      local.common_tags,
-      {
+    local.common_tags,
+    {
       "Name" = "allow_dss"
-      },
+    },
   )
 }
 
@@ -67,15 +67,15 @@ resource "aws_security_group_rule" "allow_all" {
   from_port         = 0
   to_port           = 0
   protocol          = "-1"
-  cidr_blocks       = ["0.0.0.0/0",]
+  cidr_blocks       = ["0.0.0.0/0", ]
   security_group_id = aws_security_group.allow_ssh.id
 }
 
 resource "aws_security_group_rule" "allow_eks" {
-  type              = "ingress"
-  from_port         = 0
-  to_port           = 0
-  protocol          = "tcp"
-  cidr_blocks       = var.my_ip
-  security_group_id = aws_security_group.allow_dss.id
+  type                     = "ingress"
+  from_port                = 0
+  to_port                  = 0
+  protocol                 = "tcp"
+  source_security_group_id = aws_security_group.allow_dss.id
+  security_group_id        = aws_security_group.allow_eks.id
 }
