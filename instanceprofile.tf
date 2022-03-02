@@ -180,6 +180,15 @@ resource "aws_iam_policy" "policy_dss_eks_iam" {
         ]
       },
       {
+            "Effect": "Allow",
+            "Action": [
+                "iam:GetRole"
+            ],
+            "Resource": [
+                "arn:aws:iam::${local.current_account_id}:role/*"
+            ]
+        },
+      {
         "Sid" : "EksIamLinkedRole",
         "Effect" : "Allow",
         "Action" : "iam:CreateServiceLinkedRole",
