@@ -10,6 +10,19 @@ resource "aws_security_group" "allow_ssh" {
   )
 }
 
+resource "aws_security_group" "allow_dss" {
+  name        = "allow_dss"
+  description = "Allow dss inbound traffic"
+  vpc_id      = aws_vpc.main.id
+  tags = merge(
+      local.common_tags,
+      {
+      "Name" = "allow_dss"
+      },
+  )
+}
+
+
 resource "aws_security_group_rule" "allow_ssh" {
   type              = "ingress"
   from_port         = 22
