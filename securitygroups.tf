@@ -74,7 +74,7 @@ resource "aws_security_group_rule" "allow_all" {
 resource "aws_security_group_rule" "allow_eks" {
   type                     = "ingress"
   from_port                = 0
-  to_port                  = 0
+  to_port                  = 65536
   protocol                 = "tcp"
   source_security_group_id = aws_security_group.allow_dss.id
   security_group_id        = aws_security_group.allow_eks.id
