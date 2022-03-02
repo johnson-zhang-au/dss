@@ -65,7 +65,7 @@ resource "aws_security_group_rule" "allow_https" {
 resource "aws_security_group_rule" "allow_all" {
   type              = "egress"
   from_port         = 0
-  to_port           = 65536
+  to_port           = 65535
   protocol          = "-1"
   cidr_blocks       = ["0.0.0.0/0", ]
   security_group_id = aws_security_group.allow_ssh.id
@@ -74,7 +74,7 @@ resource "aws_security_group_rule" "allow_all" {
 resource "aws_security_group_rule" "allow_eks" {
   type                     = "ingress"
   from_port                = 0
-  to_port                  = 65536
+  to_port                  = 65535
   protocol                 = "tcp"
   source_security_group_id = aws_security_group.allow_dss.id
   security_group_id        = aws_security_group.allow_eks.id
