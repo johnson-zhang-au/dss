@@ -35,7 +35,7 @@ data "aws_iam_policy_document" "instance-assume-role-policy" {
 }
 
 resource "aws_iam_policy" "policy_dss_ecr" {
-  name = "policy-dss-ecr-${instance_profile.iam_policy_suffix}"
+  name = "policy-dss-ecr-${var.instance_profile.iam_policy_suffix}"
 
   policy = jsonencode({
     Version = "2012-10-17"
