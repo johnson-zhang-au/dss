@@ -62,7 +62,6 @@ resource "aws_iam_policy" "policy_dss_ecr" {
   })
 }
 
-
 resource "aws_iam_policy" "policy_dss_eks" {
   name = "policy-policy-dss-eks"
 
@@ -78,7 +77,6 @@ resource "aws_iam_policy" "policy_dss_eks" {
     ]
   })
 }
-
 
 resource "aws_iam_policy" "policy_dss_eksctl_cf" {
   name = "policy-policy-dss-eksctl-cf"
@@ -96,9 +94,8 @@ resource "aws_iam_policy" "policy_dss_eksctl_cf" {
   })
 }
 
-
-resource "aws_iam_policy" "policy_dss_eks_launch_conf" {
-  name = "policy-policy-dss-eks-launch-conf"
+resource "aws_iam_policy" "policy_dss_eks_launch" {
+  name = "policy-policy-dss-eks-launch"
 
   policy = jsonencode({
     Version = "2012-10-17"
@@ -111,6 +108,12 @@ resource "aws_iam_policy" "policy_dss_eks_launch_conf" {
           "autoscaling:DeleteLaunchConfiguration"
         ],
         "Resource" : "arn:aws:autoscaling:*:*:launchConfiguration:*:launchConfigurationName/*"
+      },
+      {
+        "Sid" : "EksLaunchTemplates",
+        "Effect" : "Allow",
+        "Action" : "ec2:*LaunchTemplate*",
+        "Resource" : "*"
       }
     ]
   })
@@ -178,17 +181,7 @@ resource "aws_iam_policy" "policy_dss_eks_iam" {
           "arn:aws:iam::${local.current_account_id}:instance-profile/eksctl-*",
           "arn:aws:iam::${local.current_account_id}:role/eksctl-*"
         ]
-      }
-    ]
-  })
-}
-
-resource "aws_iam_policy" "policy_dss_eks_linked_role" {
-  name = "policy-policy-dss-eks-linked-role"
-
-  policy = jsonencode({
-    Version = "2012-10-17"
-    Statement = [
+      },
       {
         "Sid" : "EksIamLinkedRole",
         "Effect" : "Allow",
@@ -197,17 +190,7 @@ resource "aws_iam_policy" "policy_dss_eks_linked_role" {
           "arn:aws:iam::${local.current_account_id}:role/aws-service-role/eks.amazonaws.com/*",
           "arn:aws:iam::${local.current_account_id}:role/aws-service-role/autoscaling.amazonaws.com/*"
         ]
-      }
-    ]
-  })
-}
-
-resource "aws_iam_policy" "policy_dss_eks_iam_openid" {
-  name = "policy-policy-dss-eks-iam-openid"
-
-  policy = jsonencode({
-    Version = "2012-10-17"
-    Statement = [
+      },
       {
         "Sid" : "EksIamOpenID",
         "Effect" : "Allow",
@@ -229,21 +212,6 @@ resource "aws_iam_policy" "policy_dss_eks_igw" {
         "Effect" : "Allow",
         "Action" : "ec2:DeleteInternetGateway",
         "Resource" : "arn:aws:ec2:*:*:internet-gateway/*"
-      }
-    ]
-  })
-}
-resource "aws_iam_policy" "policy_dss_eks_launch_template" {
-  name = "policy-policy-dss-eks-launch-template"
-
-  policy = jsonencode({
-    Version = "2012-10-17"
-    Statement = [
-      {
-        "Sid" : "EksLaunchTemplates",
-        "Effect" : "Allow",
-        "Action" : "ec2:*LaunchTemplate*",
-        "Resource" : "*"
       }
     ]
   })
