@@ -36,7 +36,7 @@ ebs_vol = {
   size = 100
 }
 key_name = "johnsonz-key"
-my_ip = ["49.178.105.115/32","1.147.110.85/32"]
+my_ip = ["49.178.105.115/32","1.147.94.21/32"]
 ecr = {
   image_tag_mutability = "MUTABLE"
   name = "johnson-dss"
